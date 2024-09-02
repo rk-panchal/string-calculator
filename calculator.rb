@@ -41,4 +41,9 @@ class AddTest < Minitest::Test
     assert_equal 6, add("//;\n1;2;3")
     assert_equal 6, add("//;\n 1 ; 2 ; 3")
   end
+
+  def test_multiple_numbers
+    assert_equal 6, add("1,2,3")
+    assert_equal 6, add("1\n2,3")
+  end
 end
