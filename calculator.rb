@@ -36,4 +36,9 @@ class AddTest < Minitest::Test
     exception = assert_raises(RuntimeError) { add("//;\n1;-2;3") }
     assert_equal "negative numbers not allowed: -2", exception.message
   end
+
+  def test_custom_delimiter
+    assert_equal 6, add("//;\n1;2;3")
+    assert_equal 6, add("//;\n 1 ; 2 ; 3")
+  end
 end
