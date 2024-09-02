@@ -19,7 +19,13 @@ end
 require 'minitest/autorun'
 
 class AddTest < Minitest::Test
+  
   def test_empty_string
     assert_equal 0, add("")
+  end
+
+  def test_single_number
+    assert_equal 1, add("1")
+    assert_equal 2, add("2")
   end
 end
