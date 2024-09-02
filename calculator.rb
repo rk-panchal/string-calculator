@@ -14,3 +14,12 @@ def add(numbers)
 
   nums.sum
 end
+
+
+require 'minitest/autorun'
+
+class AddTest < Minitest::Test
+  def test_empty_string
+    assert_equal 0, add("")
+  end
+end
