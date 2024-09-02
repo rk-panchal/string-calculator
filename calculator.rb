@@ -54,4 +54,8 @@ class AddTest < Minitest::Test
     exception = assert_raises(RuntimeError) { add("//;\n1;-2;-3") }
     assert_equal "negative numbers not allowed: -2, -3", exception.message
   end
+
+  def test_numbers_with_leading_zeros
+    assert_equal 6, add("01,02,03")
+  end
 end
