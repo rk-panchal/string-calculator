@@ -46,4 +46,12 @@ class AddTest < Minitest::Test
     assert_equal 6, add("1,2,3")
     assert_equal 6, add("1\n2,3")
   end
+
+  def test_multiple_negative_numbers
+    exception = assert_raises(RuntimeError) { add("1,-2,-3") }
+    assert_equal "negative numbers not allowed: -2, -3", exception.message
+
+    exception = assert_raises(RuntimeError) { add("//;\n1;-2;-3") }
+    assert_equal "negative numbers not allowed: -2, -3", exception.message
+  end
 end
